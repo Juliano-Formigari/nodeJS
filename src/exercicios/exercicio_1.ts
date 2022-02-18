@@ -10,7 +10,7 @@ function escreveLogMemoria(){
     const conteudo = `Memória total = ${memoriaTotal} MB, Memória livre = ${memoriaLivre} MB, utilização = ${usoMemoria} % ${os.EOL}`;
 
     try {
-        fs.appendFileSync(path.resolve("..","arquivos", "log.txt"), conteudo)
+        fs.appendFileSync(path.resolve("..","src","arquivos", "log.txt"), conteudo)
     } catch (error) {
         console.log(error)
     }

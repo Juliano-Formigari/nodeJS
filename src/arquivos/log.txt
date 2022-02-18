@@ -1,0 +1,9 @@
+Memória total = 16331 MB, Memória livre = 11074 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11063 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11077 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11063 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11075 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11063 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11076 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11072 MB, utilização = 67 % 
+Memória total = 16331 MB, Memória livre = 11091 MB, utilização = 67 % 
