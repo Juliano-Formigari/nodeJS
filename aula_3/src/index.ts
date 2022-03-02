@@ -1,26 +1,15 @@
-import express, { Request, Response } from "express";
-import { createConnection, getRepository } from "typeorm";
-import { Usuario } from "./entity/Usuario";
+import express from "express";
+import { createConnection } from "typeorm";
+import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddleware";
+import usuarioRoutes from "./routes/usuarioRoutes";
 
 const app = express();
 const PORT = 8080;
 
+app.use(express.json());
 createConnection().then(connection => {
-
-    app.get("/usuarios", async (req: Request, res: Response) => {
-        const usuarios = await getRepository(Usuario).find();
-        
-        res.json(usuarios)
-    });
-    app.get("/usuarios/:id", async (req: Request, res: Response) => {
-        try{
-            const usuario = await getRepository(Usuario).findOneOrFail(req.params.id);
-            
-            res.json(usuario)
-        } catch{
-            res.status(404).json({error: "Usuário não foi encontrado!!"})
-        }
-    });
+    app.use("/v1", usuarioRoutes);
+    app.use(errorHandlerMiddleware);
 
 });
 
