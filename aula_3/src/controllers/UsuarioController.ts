@@ -60,7 +60,7 @@ export class UsuarioController {
         try {
             const usuarioExiste = await getRepository(Usuario).findOne(req.params.id)
             if (!usuarioExiste) throw createHttpError(404, "Usuário não foi encontrado!")
-            const resultado = await getRepository(Usuario).delete(usuarioExiste)
+            getRepository(Usuario).delete(usuarioExiste)
             res.status(204).end();
         } catch (error) {
             next(error)
@@ -77,8 +77,20 @@ export class UsuarioController {
             novaTarefa.usuario = usuarioExiste
 
             const resultado = await getRepository(Tarefa).save(novaTarefa)
-            
+
             res.status(201).json(resultado);
+        } catch (error) {
+            next(error)
+        }
+    };
+    static async obterTarefasDoUsuario(req: Request, res: Response, next: NextFunction) {
+        try {
+            const usuarioExiste = await getRepository(Usuario).findOne(req.params.id, {relations: ["tarefas"]});
+            if (!usuarioExiste) throw createHttpError(404, "Usuário não foi encontrado!");
+
+            res.json(usuarioExiste.tarefas)
+
+
         } catch (error) {
             next(error)
         }
